@@ -48,6 +48,50 @@
     <link rel="stylesheet" href="assets/css/tevily.css" />
     <link rel="stylesheet" href="assets/css/tevily-responsive.css" />
 </head>
+<style>
+/* Beautify Form Inputs */
+.booking-form .card {
+    border-radius: 15px;
+    background: #ffffff;
+}
+
+.booking-form .comment-form__input-box input,
+.booking-form .comment-form__input-box select,
+.booking-form .comment-form__input-box textarea {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 14px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.booking-form .comment-form__input-box input:focus,
+.booking-form .comment-form__input-box select:focus,
+.booking-form .comment-form__input-box textarea:focus {
+    border-color: #ff7f50;
+    box-shadow: 0 0 8px rgba(255,127,80,0.3);
+    outline: none;
+}
+
+.booking-form .thm-btn {
+    background: #ff7f50;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.booking-form .thm-btn:hover {
+    background: #ff6347;
+}
+
+.booking-form .result p {
+    text-align: center;
+    font-size: 16px;
+}
+</style>
 
 <body>
     <div class="preloader">
@@ -169,58 +213,132 @@
         </section>
         <!--Page Header End-->
 
-        <!--Contact Page Start-->
-        <section class="contact-page">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="contact-page__left">
-                            <div class="section-title text-left">
-                                <span class="section-title__tagline">Talk with us</span>
-                                <h2 class="section-title__title">Any Question or comment? Feel Free to Contact</h2>
+
+  <!-- Booking Form Section -->
+<section class="booking-form py-5" style="background:#f8f9fa;">
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-8 text-center">
+                <h2 class="sec-title mb-3">Book Your Tour</h2>
+                <p class="mb-0">Choose your preferred Zanzibar or Tanzania tour and provide your details to book.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Card Style Form -->
+                <div class="card shadow-sm border-0 p-4">
+                    <form id="bookingForm" action="https://formspree.io/f/movbdprq" method="POST" class="comment-one__form contact-form-validated">
+                        <div class="row g-3">
+
+                            <!-- Name -->
+                            <div class="col-md-6">
+                                <div class="comment-form__input-box">
+                                    <input type="text" name="name" placeholder="Your Name" required>
+                                </div>
                             </div>
-                            <div class="contact-page__social">
-                                <a href="#"><i class="fab fa-facebook"></i></a>
-                                <a href="https://api.whatsapp.com/send?phone=255718123676&text=Hello! Moyya, I Would Like to...."><i class="fab fa-whatsapp"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-dribbble"></i></a>
+
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <div class="comment-form__input-box">
+                                    <input type="email" name="email" placeholder="Email Address" required>
+                                </div>
                             </div>
+
+                            <!-- Phone -->
+                            <div class="col-md-6">
+                                <div class="comment-form__input-box">
+                                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                                </div>
+                            </div>
+
+                            <!-- Tour Type -->
+                            <div class="col-md-6">
+                                <div class="comment-form__input-box">
+                                    <select name="tour_type" required>
+                                        <option value="">Select Tour Type</option>
+                                        <option value="Luxury">Luxury</option>
+                                        <option value="Economy">Economy</option>
+                                        <option value="Standard">Standard</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Zanzibar Excursion -->
+                            <div class="col-md-6">
+                                <div class="comment-form__input-box">
+                                    <select name="zanzibar_excursion">
+                                        <option value="">Select Zanzibar Excursion</option>
+                                        <option value="Blue Safari">Blue Safari</option>
+                                        <option value="Mnemba Atoll">Mnemba Atoll</option>
+                                        <option value="Stone Town Tour">Stone Town</option>
+                                        <option value="Jozani Forest">Jozani Forest</option>
+                                        <option value="Spice Farm">Spice Farm</option>
+                                        <option value="Jet Ski">Jet Ski</option>
+                                        <option value="The Rock Restaurant">The Rock Restaurant</option>
+                                        <option value="Squad Bikes">Squad Bikes</option>
+                                        <option value="Jets & Clear Kayak">Jets & Clear Kayak</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Tanzania Safaris -->
+                            <div class="col-md-6">
+                                <div class="comment-form__input-box">
+                                    <select name="tanzania_safari">
+                                        <option value="">Select Tanzania Safari</option>
+                                        <option value="Kilimanjaro">Kilimanjaro</option>
+                                        <option value="Serengeti">Serengeti</option>
+                                        <option value="Ngorongoro Crater">Ngorongoro Crater</option>
+                                        <option value="Tarangire">Tarangire</option>
+                                        <option value="Lake Manyara">Lake Manyara</option>
+                                        <option value="Selous Game Reserve">Selous Game Reserve</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Date -->
+                            <div class="col-md-6">
+                                <div class="comment-form__input-box">
+                                    <input type="date" name="date" required>
+                                </div>
+                            </div>
+
+                            <!-- Number of People -->
+                            <div class="col-md-6">
+                                <div class="comment-form__input-box">
+                                    <input type="number" name="number_of_people" placeholder="Number of People" min="1" required>
+                                </div>
+                            </div>
+
+                            <!-- Special Requests / Exceptions -->
+                            <div class="col-md-12">
+                                <div class="comment-form__input-box">
+                                    <textarea name="special_request" placeholder="Special Requests / Care / Exceptions"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="thm-btn comment-form__btn w-50 py-2">Book Now</button>
+                            </div>
+
+                            <!-- Result Message -->
+                            <div class="col-md-12 mt-3">
+                                <div class="result" id="bookingResult"></div>
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="col-xl-8 col-lg-7">
-                        <div class="contact-page__right">
-                            <div class="comment-form">
-                                <form action="https://tevily-html.vercel.app/inc/sendemail.php" class="comment-one__form contact-form-validated">
-                                    <div class="row">
-                                        <div class="col-xl-6">
-                                            <div class="comment-form__input-box">
-                                                <input type="text" placeholder="Your name" name="name">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <div class="comment-form__input-box">
-                                                <input type="email" placeholder="Email address" name="email">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xl-12">
-                                            <div class="comment-form__input-box">
-                                                <textarea name="message" placeholder="Write Comment"></textarea>
-                                            </div>
-                                            <button type="submit" class="thm-btn comment-form__btn">Send a
-                                                message</button>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div class="result"></div><!-- /.result -->
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </section>
-        <!--Contact Page End-->
+        </div>
+    </div>
+</section>
+
+
+
+
+
 
         <!--Information Start-->
         <section class="information">
@@ -245,9 +363,9 @@
                             </div>
                             <div class="information__text">
                                 <h4>
-                                    <a href="tel:+255718123676" class="information__number-1">+255 718 123 676</a>
+                                    <a href="tel:+255 756 203 131" class="information__number-1">+255 756 203 131</a>
                                     <br>
-                                    <a href="tel:+255718123676" class="information__number-2">+255 718 123 676</a>
+                                    <a href="tel:+255 756 203 131" class="information__number-2">++255 756 203 131</a>
                                 </h4>
                             </div>
                         </div>
@@ -260,8 +378,8 @@
                             </div>
                             <div class="information__text">
                                 <h4>
-                                    <a href="mailto:wamoyya@gmail.com"
-                                        class="information__mail-1">wamoyya@gmail.com</a> <br>
+                                    <a href="mailto:sjafricatours@gmail.com"
+                                        class="information__mail-1">sjafricatours@gmail.com</a> <br>
                                     <!-- <a href="mailto:info@tevily.com" class="information__mail-2">info@tevily.com</a> -->
                                 </h4>
                             </div>
@@ -274,9 +392,7 @@
 
         <!--Google Map Start-->
         <section class="contact-page-google-map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd"
-                class="contact-page-google-map__one" allowfullscreen></iframe>
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15867.050774717061!2d39.1827147746649!3d-6.162527817324964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185cd059242fbd01%3A0x9a18e54b0e5a94d8!2sStone%20Town%2C%20Zanzibar!5e0!3m2!1sen!2stz!4v1763807203699!5m2!1sen!2stz" width="1400" height="1000" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         </section>
         <!--Google Map End-->
@@ -501,6 +617,41 @@ window.gtranslateSettings = {
 };
 </script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+
+
+
+<!-- Form Submission Script -->
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const resultDiv = document.getElementById('bookingResult');
+    const data = new FormData(form);
+
+    fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    }).then(response => {
+        if (response.ok) {
+            resultDiv.innerHTML = '<p class="text-success fw-bold">Thank you! Your booking has been sent successfully. We will contact you soon.</p>';
+            form.reset();
+        } else {
+            response.json().then(data => {
+                if (data.errors) {
+                    resultDiv.innerHTML = '<p class="text-danger">Error: ' + data.errors.map(error => error.message).join(', ') + '</p>';
+                } else {
+                    resultDiv.innerHTML = '<p class="text-danger">Oops! There was a problem submitting your booking.</p>';
+                }
+            });
+        }
+    }).catch(() => {
+        resultDiv.innerHTML = '<p class="text-danger">Oops! There was a problem submitting your booking.</p>';
+    });
+});
+</script>
+
 
 </body>
 </html>
